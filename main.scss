@@ -1,15 +1,12 @@
-$primary-color: #212121;
-$text-color: #eeffff;
-$colors: (
-    "red": red,
-    "highlight": #ffcc00 
-);
-// functions
+@import './variables';
+@import './resets';
+
+// functions: returns value
 @function mycolor($color_name) {
     @return map-get($colors, $color_name);
 }
 
-// mixins
+// mixins: returns code
 @mixin flexCenter($direction) {
     display: flex;
     justify-content: center;
@@ -32,7 +29,9 @@ body {
 .first {
     @include flexCenter(row);
 
-    #{&}-para {
+    #{&}-para { 
+        // & - gives parent class name
+        // ${&} - known as interpolation, adds upper class as hierarchy
         margin: 10px;
 
         &:hover {
