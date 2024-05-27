@@ -15,11 +15,19 @@ body {
   align-items: center;
   flex-direction: row;
 }
-.first .first-para {
+.first .first-para1, .first .first-para2 {
   margin: 10px;
 }
-.first .first-para:hover {
+.first .first-para1:hover, .first .first-para2:hover {
   color: #ffcc00;
+}
+.first .first-para2:hover {
+  color: #f07178;
+}
+@media (max-width: 800px) {
+  .first {
+    flex-direction: column;
+  }
 }
 
 /*# sourceMappingURL=main.css.map */

@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+/* SCSS HEX */
+$primary-color: #212121ff;
+$text-color: #eeffffff;
+$accent-color: #ffcc00ff;
+$warning-color: #f07178ff;
+$extra-color: #82aaffff;
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+@mixin transition-ease {
+    transition: all 0.3s ease-in-out;
+}
+
+@function set-text-color($color) {
+    @if (lightness($color) > 40%) {
+        @return $primary-color;
+    }
+    @else {
+        @return $text-color;
+    }
+}
+
+@mixin media-md {
+    @media screen and (min-width: 768px) {
+        @content;
+    }
+}
+
+@mixin media-lg {
+    @media screen and (min-width: 1024px) {
+        @content;
+    }
+}
+
+@mixin media-xl {
+    @media screen and (min-width: 1600px) {
+        @content;
+    }
+}

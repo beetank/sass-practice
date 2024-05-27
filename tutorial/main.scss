@@ -21,6 +21,12 @@
     }
 }
 
+@mixin mobile {
+    @media (max-width: $mobile) {
+        @content;
+    }
+}
+
 body {
     color: $text-color;
     background: $primary-color;
@@ -29,14 +35,26 @@ body {
 .first {
     @include flexCenter(row);
 
-    #{&}-para { 
+    #{&}-para1 { 
         // & - gives parent class name
         // ${&} - known as interpolation, adds upper class as hierarchy
         margin: 10px;
 
         &:hover {
-            color: mycolor(highlight);
+            color: mycolor("highlight");
         }
+    }
+
+    #{&}-para2 {
+        @extend .first-para1;
+
+        &:hover {
+            color: mycolor("red");
+        }
+    }
+
+    @include mobile{
+        flex-direction: column;
     }
 }
 
