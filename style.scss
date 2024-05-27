@@ -1,0 +1,46 @@
+$primary-color: #212121;
+$text-color: #eeffff;
+$colors: (
+    "red": red,
+    "highlight": #ffcc00 
+);
+// functions
+@function mycolor($color_name) {
+    @return map-get($colors, $color_name);
+}
+
+// mixins
+@mixin flexCenter($direction) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: $direction;
+} 
+
+@mixin theme($light-theme: true) {
+    @if $light-theme {
+        background: lighten($primary-color, 100%);
+        color: darken($text-color, 100%);
+    }
+}
+
+body {
+    color: $text-color;
+    background: $primary-color;
+}
+
+.first {
+    @include flexCenter(row);
+
+    #{&}-para {
+        margin: 10px;
+
+        &:hover {
+            color: mycolor(highlight);
+        }
+    }
+}
+
+.light {
+    @include theme($light-theme: false);
+}

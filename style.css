@@ -1,0 +1,19 @@
+body {
+  color: #eeffff;
+  background: #212121;
+}
+
+.first {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+.first .first-para {
+  margin: 10px;
+}
+.first .first-para:hover {
+  color: #ffcc00;
+}
+
+/*# sourceMappingURL=style.css.map */
